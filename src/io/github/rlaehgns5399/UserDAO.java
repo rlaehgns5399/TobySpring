@@ -5,12 +5,8 @@ import java.sql.*;
 /**
  * Created by KimDoHoon on 2019-01-08 008.
  */
-public class UserDAO {
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3307/springbook?useSSL=false", "root", "root");
-        return c;
-    }
+public abstract class UserDAO {
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = getConnection();
 
