@@ -6,12 +6,12 @@ import java.sql.*;
  * Created by KimDoHoon on 2019-01-08 008.
  */
 public class UserDAO {
-    private SimpleConnectionMaker simpleConnectionMaker;
+    private ConnectionMaker connectionMaker;
     public UserDAO(){
-        simpleConnectionMaker = new SimpleConnectionMaker();
+        connectionMaker = new DConnectionMaker();
     }
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Connection c = simpleConnectionMaker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values(?, ?, ?)");
         ps.setString(1, user.getId());
@@ -25,7 +25,7 @@ public class UserDAO {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException{
-        Connection c = simpleConnectionMaker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
