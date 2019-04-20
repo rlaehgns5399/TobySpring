@@ -5,8 +5,17 @@ package io.github.rlaehgns5399;
  */
 public class DaoFactory {
     public UserDAO userDAO(){
-        ConnectionMaker connectionMaker = new DConnectionMaker();
-        UserDAO userDao = new UserDAO(connectionMaker);
-        return userDao;
+        return new UserDAO(connectionMaker());
     }
+    public ConnectionMaker connectionMaker(){
+        return new DConnectionMaker();
+    }
+
+    // 새로운 DAO를 만들고자 한다면 매 번 같은 DConnectionMaker 생성자를 부를 것이다.
+    // 메소드 분리를 하는 것이 좋다.
+    /*
+    public AccountDAO accountDAO(){
+        return new AccountDao(new DConnectionMaker());
+    }
+     */
 }
