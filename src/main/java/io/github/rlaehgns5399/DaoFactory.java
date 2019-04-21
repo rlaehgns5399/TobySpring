@@ -1,5 +1,7 @@
 package io.github.rlaehgns5399;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 /**
  * Created by KimDoHoon on 2019-02-14 014.
  */
