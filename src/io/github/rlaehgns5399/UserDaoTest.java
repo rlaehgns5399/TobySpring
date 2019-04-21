@@ -7,7 +7,9 @@ import java.sql.SQLException;
  */
 public class UserDaoTest {
     public static void main(String[] args) throws ClassNotFoundException, SQLException{
-        UserDAO dao = new DaoFactory().userDAO();
+        ApplicationContext context = new AnnotationConfigApplication(DaoFactory.class);
+
+        UserDAO dao = context.getBean("userDAO", UserDAO.class);
 
         User user = new User();
         user.setId("whiteship");

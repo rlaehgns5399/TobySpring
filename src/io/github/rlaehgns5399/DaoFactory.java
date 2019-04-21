@@ -3,10 +3,13 @@ package io.github.rlaehgns5399;
 /**
  * Created by KimDoHoon on 2019-02-14 014.
  */
+@Configuration
 public class DaoFactory {
+    @Bean
     public UserDAO userDAO(){
         return new UserDAO(connectionMaker());
     }
+    @Bean
     public ConnectionMaker connectionMaker(){
         return new DConnectionMaker();
     }
