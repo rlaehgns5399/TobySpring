@@ -6,6 +6,9 @@ import java.sql.*;
  * Created by KimDoHoon on 2019-01-08 008.
  */
 public class UserDAO {
+    /**
+     * Runtime 의존 관계 형성
+     */
     private ConnectionMaker connectionMaker;
     public UserDAO(ConnectionMaker connectionMaker){
         this.connectionMaker = connectionMaker;
