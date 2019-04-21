@@ -12,9 +12,14 @@ public class UserDaoTest {
     public static void main(String[] args) throws ClassNotFoundException, SQLException{
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
         UserDAO dao = context.getBean("userDAO", UserDAO.class);
+        UserDAO dao2 = context.getBean("userDAO", UserDAO.class);
 
+        // ApplicationContext에서 생성된 Bean은 모두 싱글톤 패턴으로 저장하고 관리한다.
+        System.out.println(dao);
+        System.out.println(dao2);
+        /**
         User user = new User();
-        user.setId("whiteship");
+        user.setId("root");
         user.setName("김도훈");
         user.setPassword("root");
 
@@ -26,5 +31,6 @@ public class UserDaoTest {
         System.out.println(user2.getName());
         System.out.println(user2.getPassword());
         System.out.println(user2.getId() + "조회 성공!");
+        **/
     }
 }
