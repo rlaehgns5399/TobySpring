@@ -8,7 +8,7 @@ public class Main {
         UserDAO dao = new DaoFactory().userDAO();
 
         User user = new User();
-        user.setId("whiteship");
+        user.setId("dd");
         user.setName("김도훈");
         user.setPassword("root");
 
